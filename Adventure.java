@@ -11,16 +11,9 @@ public class Adventure {
         map = new Map();
         player = new Player(map.getRoom(), 100);
     }
-
     public Player getPlayer() {
         return player;
     }
 
 
 }
-
-
-
-
-
-

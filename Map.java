@@ -10,6 +10,7 @@ public class Map {
         this.createMap();
     }
 
+    // Herinde ligger hele mit map. Både med hvad der er i lokalerne, hvilke veje man kan gå etc.
     public void createMap() {
 
         Room room1 = new Room(1, "There are 2 doors. Take a look around to see if there is anything you can use on your journey to room 5.");
@@ -30,8 +31,8 @@ public class Map {
 
         // Her laver jeg food, som man kan samle op og indtage.
         Food coffee = new Food("Coffee", "A scolden hot coffee", 10);
-        Food polo = new Food("Polo", "A pack of Polo mints is on the floor.", 15);
-        Food cigarette = new Food("Cigarette", "A Marlboro gold cigarette is lying on the floor right next to the candle", -15);
+        Food polo = new Food("Polo", "A pack of Polo mints", 15);
+        Food cigarette = new Food("Cigarette", "A Marlboro gold cigarette", -15);
 
         //Her tildeler jeg mit food et rum som det skal befinde sig i.
 
@@ -40,15 +41,14 @@ public class Map {
         room1.addItem(coffee);
 
         // Her laver jeg våben.
-        Weapon knife = new Weapon("Knife", "A rusty knife", 25);
+        MeleeWeapon knife = new MeleeWeapon("Knife", "A rusty knife that deals 25 damage", 25, Double.POSITIVE_INFINITY);
+        RangedWeapon gun = new RangedWeapon("Gun", "A shiny handgun with 8 bullets that deals 50 damage", 50, 8);
 
         // Her tildeler jeg mine våben hvilket rum de skal være i.
         room4.addItem(knife);
-
-
+        room7.addItem(gun);
 
         // Her er alle mine rooms, der gør at jeg kan bevæge mig rundt i spillet. Skal ikke pilles ved.
-
         room1.setN(null);
         room1.setE(room2);
         room1.setS(room4);

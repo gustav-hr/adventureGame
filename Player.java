@@ -6,7 +6,8 @@ public class Player {
     private int healthPoints;
     private Room currentRoom;
     private ArrayList<Item> itemArrayList;
-
+    private ArrayList<Item> equipped;
+    private Weapon currentweapon;
 
     // Herunder står alt som har noget med HP at gøre.
     @Override
@@ -27,6 +28,7 @@ public class Player {
         this.healthPoints = healthPoints;
         this.currentRoom = firstRoom;
         this.itemArrayList = new ArrayList<>();
+        this.equipped = new ArrayList<>(); // Denne linje laver en ny arraylist, der sørger for at når man skriver "equip <weapon>" så får man at vide at man equipper sit våben.
     }
 
     // Herunder står alt der har noget med spillerens lokation at gøre, og om det er muligt at bevæge sig den vej.
@@ -76,6 +78,19 @@ public class Player {
 
     public ArrayList<Item> getItemArrayList() {
         return itemArrayList;
+    }
+// ______________________ HER ER WEAPONS - DELEN MED AT SKULE EQUIPPE ET VÅBEN.
+
+    public void addWeaponToEquipped(Item equippedWeapon) {
+        equipped.add(equippedWeapon);
+    }
+
+    public ArrayList getEquippedWeapon() {
+        return equipped;
+    }
+
+    public Weapon getCurrentweapon() {
+        return (Weapon) equipped.get(0);
     }
 }
 
